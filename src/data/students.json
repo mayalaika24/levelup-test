@@ -1,0 +1,12 @@
+[
+  {
+    "id": "stu-001",
+    "academicYearId": "ay-2024-2025",
+    "isActive": true
+  },
+  {
+    "id": "stu-002",
+    "academicYearId": "ay-2025-2026",
+    "isActive": false
+  }
+]

@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { z } from "zod";
 import { NextResponse } from "next/server";
 import {
   academicYearPayloadSchema,
@@ -12,6 +13,13 @@ import {
 export const runtime = "nodejs";
 
 const academicYearsFilePath = path.join(process.cwd(), "src", "data", "academic-years.json");
+const studentsFilePath = path.join(process.cwd(), "src", "data", "students.json");
+
+const studentSchema = z.object({
+  id: z.string().trim().min(1),
+  academicYearId: z.string().trim().min(1),
+  isActive: z.boolean(),
+});
 
 async function readAcademicYearsFile() {
   const fileContent = await fs.readFile(academicYearsFilePath, "utf-8");
@@ -25,14 +33,35 @@ async function readAcademicYearsFile() {
   return parsed.data;
 }
 
+async function readStudentsFile() {
+  const fileContent = await fs.readFile(studentsFilePath, "utf-8");
+  const raw = JSON.parse(fileContent) as unknown;
+  const parsed = studentSchema.array().safeParse(raw);
+
+  if (!parsed.success) {
+    throw new Error("Invalid students file shape.");
+  }
+
+  return parsed.data;
+}
+
+function withStudentLinks(academicYears: AcademicYearInput[], students: Array<z.infer<typeof studentSchema>>) {
+  return academicYears.map((academicYear) => ({
+    ...academicYear,
+    hasActiveStudentRecord: students.some(
+      (student) => student.isActive && student.academicYearId === academicYear.id,
+    ),
+  }));
+}
+
 async function writeAcademicYearsFile(data: AcademicYearInput[]) {
   await fs.writeFile(academicYearsFilePath, `${JSON.stringify(data, null, 2)}\n`, "utf-8");
 }
 
 export async function GET() {
   try {
-    const data = await readAcademicYearsFile();
-    return NextResponse.json(data);
+    const [academicYears, students] = await Promise.all([readAcademicYearsFile(), readStudentsFile()]);
+    return NextResponse.json(withStudentLinks(academicYears, students));
   } catch {
     return NextResponse.json({ message: "Failed to read academic years file." }, { status: 500 });
   }
@@ -59,7 +88,8 @@ export async function POST(request: Request) {
       : [...current, created];
 
     await writeAcademicYearsFile(next);
-    return NextResponse.json(next);
+    const students = await readStudentsFile();
+    return NextResponse.json(withStudentLinks(next, students));
   } catch {
     return NextResponse.json({ message: "Failed to create academic year." }, { status: 500 });
   }
@@ -91,7 +121,8 @@ export async function PATCH(request: Request) {
     base[targetIndex] = updated;
 
     await writeAcademicYearsFile(base);
-    return NextResponse.json(base);
+    const students = await readStudentsFile();
+    return NextResponse.json(withStudentLinks(base, students));
   } catch {
     return NextResponse.json({ message: "Failed to update academic year." }, { status: 500 });
   }
@@ -106,14 +137,18 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ message: "Missing academic year id." }, { status: 400 });
     }
 
-    const current = await readAcademicYearsFile();
+    const [current, students] = await Promise.all([readAcademicYearsFile(), readStudentsFile()]);
     const target = current.find((item) => item.id === id);
 
     if (!target) {
       return NextResponse.json({ message: "Academic year not found." }, { status: 404 });
     }
 
-    if (target.hasActiveStudentRecord) {
+    const hasActiveStudentRecord = students.some(
+      (student) => student.isActive && student.academicYearId === target.id,
+    );
+
+    if (hasActiveStudentRecord) {
       return NextResponse.json(
         { message: "Cannot delete academic year linked to an active student record." },
         { status: 409 },
@@ -122,7 +157,7 @@ export async function DELETE(request: Request) {
 
     const filtered = current.filter((item) => item.id !== id);
     await writeAcademicYearsFile(filtered);
-    return NextResponse.json(filtered);
+    return NextResponse.json(withStudentLinks(filtered, students));
   } catch {
     return NextResponse.json({ message: "Failed to delete academic year." }, { status: 500 });
   }

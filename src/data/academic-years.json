@@ -22,7 +22,7 @@
     "allowGradeEditAfterEnd": true,
     "allowStudentFileEditAfterEnd": true,
     "numberOfSemesters": 3,
-    "isActive": true,
+    "isActive": false,
     "hasActiveStudentRecord": false
   }
 ]
