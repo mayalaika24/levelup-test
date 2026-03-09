@@ -22,5 +22,553 @@
       "usernameInvalid": "يرجى إدخال اسم مستخدم صالح (3 أحرف فأكثر، وحروف/أرقام/._- فقط)",
       "passwordInvalid": "يرجى إدخال كلمة مرور صالحة (8 أحرف فأكثر)"
     }
+  },
+  "DashboardLayout": {
+    "sidebarTitle": "هيكلية المدرسة",
+    "goodMorning": "صباح الخير يا",
+    "goodEvening": "مساء الخير يا",
+    "defaultUser": "المستخدم",
+    "logout": "تسجيل خروج"
+  },
+  "SchoolStructure": {
+    "title": "هيكلية المدرسة",
+    "settings": "إعدادات المدرسة",
+    "academicYear": "العام الدراسي",
+    "semesters": "الفصول الدراسية",
+    "educationalStages": "المراحل التعليمية",
+    "grades": "الصفوف الدراسية",
+    "sections": "الشعب الدراسية",
+    "subjects": "المواد الدراسية",
+    "classrooms": "القاعات",
+    "timetableSettings": "الحصص الدراسية",
+    "badges": {
+      "settings": "إعدادات",
+      "configuration": "إعداد"
+    }
+  },
+  "SchoolSettings": {
+    "title": "إعدادات المدرسة",
+    "description": "إدارة ملف المدرسة وبيانات التواصل والحضور الرقمي من مكان واحد.",
+    "loading": "جاري تحميل إعدادات المدرسة...",
+    "save": "حفظ التغييرات",
+    "saving": "جاري الحفظ...",
+    "saveFailed": "فشل حفظ إعدادات المدرسة.",
+    "loadFailed": "فشل تحميل إعدادات المدرسة.",
+    "saved": "تم حفظ إعدادات المدرسة بنجاح.",
+    "uploadHint": {
+      "image": "اختر ملف صورة",
+      "file": "اختر ملف"
+    },
+    "languages": {
+      "ar": "العربية",
+      "en": "الإنكليزية"
+    },
+    "basicInfo": {
+      "title": "المعلومات الأساسية",
+      "schoolNameAr": "اسم المدرسة (بالعربي)",
+      "schoolNameEn": "اسم المدرسة (بالإنكليزي)",
+      "logo": "اللوجو",
+      "foundedYear": "سنة التأسيس",
+      "currency": "العملة",
+      "allowMultiCurrency": "سماحية تعدد العملات",
+      "commercialRegisterNumber": "رقم السجل التجاري",
+      "showLogoInInvoices": "وجود اللوجو في الفواتير",
+      "timezone": "المنطقة الزمنية",
+      "defaultSystemLanguage": "لغة النظام الافتراضية",
+      "notificationsEnabled": "تفعيل الإشعارات",
+      "seal": "ختم المدرسة"
+    },
+    "contactInfo": {
+      "title": "معلومات التواصل",
+      "country": "الدولة",
+      "city": "المدينة",
+      "detailedAddress": "العنوان التفصيلي",
+      "primaryPhone": "رقم الهاتف الرئيسي",
+      "primaryEmail": "البريد الإلكتروني الرئيسي",
+      "website": "الموقع الإلكتروني"
+    },
+    "socialMedia": {
+      "title": "مواقع التواصل الاجتماعي",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "x": "X (Twitter)",
+      "linkedIn": "LinkedIn"
+    },
+    "validation": {
+      "invalidField": "يرجى إدخال قيمة صحيحة",
+      "checkRequiredFields": "يرجى مراجعة الحقول المحددة.",
+      "logoImageOnly": "يجب أن يكون ملف اللوجو صورة.",
+      "sealSize": "يجب ألا يتجاوز حجم ملف الختم 5 ميغابايت."
+    }
+  },
+  "AcademicYear": {
+    "title": "العام الدراسي",
+    "loading": "جاري تحميل الأعوام الدراسية...",
+    "existingAcademicYears": "الأعوام الدراسية الحالية",
+    "emptyState": "لا توجد أعوام دراسية حتى الآن.",
+    "newAcademicYear": "عام دراسي جديد",
+    "cancel": "إلغاء",
+    "closeDialog": "إغلاق النافذة",
+    "create": "إنشاء العام الدراسي",
+    "update": "تحديث العام الدراسي",
+    "saving": "جاري الحفظ...",
+    "saved": "تم حفظ بيانات العام الدراسي بنجاح.",
+    "saveFailed": "فشل حفظ بيانات العام الدراسي.",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "deleted": "تم حذف العام الدراسي بنجاح.",
+    "deleteFailed": "فشل حذف العام الدراسي.",
+    "deleteConfirm": "هل أنت متأكد من حذف هذا العام الدراسي؟",
+    "deleteBlockedByActiveStudent": "لا يمكن حذف هذا العام الدراسي لأنه مرتبط بسجل تلميذ نشط.",
+    "activeBadge": "فعال",
+    "linkedToActiveStudentYes": "مرتبط بسجل تلميذ نشط",
+    "linkedToActiveStudentNo": "غير مرتبط بسجل تلميذ نشط",
+    "activeHelpText": "هذا الاختيار يسمح لك بتسجيل طلاب جدد، وإنشاء صفوف، وإضافة دفعات مالية للطلاب",
+    "dialogs": {
+      "addTitle": "إضافة عام دراسي",
+      "editTitle": "تعديل عام دراسي",
+      "deleteTitle": "تأكيد الحذف"
+    },
+    "table": {
+      "name": "الاسم",
+      "startDate": "تاريخ البداية",
+      "endDate": "تاريخ النهاية",
+      "enrollmentWindow": "فترة التسجيل",
+      "numberOfSemesters": "الفصول",
+      "isActive": "فعال",
+      "activeStudentLink": "مرتبط بتلميذ نشط",
+      "actions": "الإجراءات"
+    },
+    "yes": "نعم",
+    "no": "لا",
+    "fields": {
+      "name": "اسم العام الدراسي",
+      "startDate": "تاريخ البداية",
+      "endDate": "تاريخ النهاية",
+      "enrollmentStartDate": "تاريخ بدء التسجيل",
+      "enrollmentEndDate": "تاريخ انتهاء التسجيل",
+      "allowGradeEditAfterEnd": "سماحية تعديل الدرجات بعد انتهاء العام الدراسي",
+      "allowStudentFileEditAfterEnd": "سماحية تعديل ملفات الطلاب بعد انتهاء العام الدراسي",
+      "numberOfSemesters": "عدد الفصول الدراسية",
+      "isActive": "فعال"
+    },
+    "hierarchy": {
+      "title": "الرسم الهيكلي للعام الدراسي",
+      "description": "اختر عامًا دراسيًا لعرض حالته وتفاصيله والفصول المرتبطة به بشكل هرمي تفاعلي.",
+      "selectAcademicYear": "اختر العام الدراسي",
+      "status": "الحالة (فعال)",
+      "expectedSemesters": "عدد الفصول المتوقع",
+      "configuredSemesters": "عدد الفصول المرتبط فعليًا",
+      "enrollmentWindow": "فترة التسجيل",
+      "structureTitle": "هيكل العام الدراسي",
+      "noSelection": "لا يوجد عام دراسي متاح للعرض.",
+      "noSemestersLinked": "لا توجد فصول مرتبطة بهذا العام الدراسي حتى الآن.",
+      "semesterDates": "تواريخ الفصل",
+      "classesDates": "تواريخ الدروس",
+      "finalExamDate": "تاريخ الامتحان النهائي",
+      "assessmentType": "نوع التقييم"
+    },
+    "validation": {
+      "invalidField": "يرجى إدخال قيمة صحيحة",
+      "checkRequiredFields": "يرجى مراجعة الحقول المحددة."
+    }
+  },
+  "Semesters": {
+    "title": "الفصول الدراسية",
+    "description": "إدارة الفصول الدراسية وربط كل فصل بالعام الدراسي المناسب.",
+    "loading": "جاري تحميل الفصول الدراسية...",
+    "existingSemesters": "الفصول الدراسية الحالية",
+    "emptyState": "لا توجد فصول دراسية حتى الآن.",
+    "newSemester": "فصل دراسي جديد",
+    "cancel": "إلغاء",
+    "closeDialog": "إغلاق النافذة",
+    "create": "إنشاء الفصل الدراسي",
+    "update": "تحديث الفصل الدراسي",
+    "saving": "جاري الحفظ...",
+    "saved": "تم حفظ الفصل الدراسي بنجاح.",
+    "saveFailed": "فشل حفظ الفصل الدراسي.",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "deleted": "تم حذف الفصل الدراسي بنجاح.",
+    "deleteFailed": "فشل حذف الفصل الدراسي.",
+    "deleteConfirm": "هل أنت متأكد من حذف هذا الفصل الدراسي؟",
+    "dialogs": {
+      "addTitle": "إضافة فصل دراسي",
+      "editTitle": "تعديل فصل دراسي",
+      "deleteTitle": "تأكيد الحذف"
+    },
+    "assessmentTypes": {
+      "monthly": "شهري",
+      "midterm": "نصف فصلي",
+      "final": "نهائي"
+    },
+    "fields": {
+      "name": "اسم الفصل",
+      "academicYear": "العام الدراسي المرتبط",
+      "selectAcademicYear": "اختر العام الدراسي",
+      "semesterStartDate": "تاريخ بداية الفصل",
+      "semesterEndDate": "تاريخ نهاية الفصل",
+      "classesStartDate": "تاريخ بداية الدروس الفعلية",
+      "classesEndDate": "تاريخ نهاية الدروس الفعلية",
+      "finalExamDate": "تاريخ الامتحان النهائي",
+      "assessmentType": "نوع التقييم"
+    },
+    "table": {
+      "name": "الاسم",
+      "academicYear": "العام الدراسي",
+      "semesterRange": "تواريخ الفصل",
+      "classesRange": "تواريخ الدروس",
+      "finalExamDate": "تاريخ الامتحان النهائي",
+      "assessmentType": "نوع التقييم",
+      "actions": "الإجراءات"
+    },
+    "validation": {
+      "invalidField": "يرجى إدخال قيمة صحيحة.",
+      "checkRequiredFields": "يرجى مراجعة الحقول المحددة.",
+      "nameTooShort": "اسم الفصل يجب أن يحتوي على حرفين على الأقل.",
+      "academicYearRequired": "يرجى اختيار العام الدراسي المرتبط.",
+      "semesterStartDateRequired": "يرجى إدخال تاريخ بداية الفصل.",
+      "semesterEndDateRequired": "يرجى إدخال تاريخ نهاية الفصل.",
+      "classesStartDateRequired": "يرجى إدخال تاريخ بداية الدروس الفعلية.",
+      "classesEndDateRequired": "يرجى إدخال تاريخ نهاية الدروس الفعلية.",
+      "finalExamDateRequired": "يرجى إدخال تاريخ الامتحان النهائي.",
+      "assessmentTypeRequired": "يرجى اختيار نوع التقييم.",
+      "semesterEndBeforeStart": "تاريخ نهاية الفصل يجب أن يكون بعد تاريخ بداية الفصل.",
+      "classesEndBeforeStart": "تاريخ نهاية الدروس يجب أن يكون بعد تاريخ بدايتها.",
+      "finalExamBeforeSemesterStart": "تاريخ الامتحان النهائي لا يمكن أن يكون قبل بداية الفصل."
+    }
+  },
+  "EducationalStages": {
+    "title": "المراحل التعليمية",
+    "description": "إدارة المراحل التعليمية المستخدمة لتصنيف الطلاب لاحقًا.",
+    "loading": "جاري تحميل المراحل التعليمية...",
+    "existingStages": "المراحل التعليمية الحالية",
+    "emptyState": "لا توجد مراحل تعليمية حتى الآن.",
+    "newStage": "مرحلة تعليمية جديدة",
+    "cancel": "إلغاء",
+    "closeDialog": "إغلاق النافذة",
+    "create": "إنشاء المرحلة",
+    "update": "تحديث المرحلة",
+    "saving": "جاري الحفظ...",
+    "saved": "تم حفظ المرحلة التعليمية بنجاح.",
+    "saveFailed": "فشل حفظ المرحلة التعليمية.",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "deleted": "تم حذف المرحلة التعليمية بنجاح.",
+    "deleteFailed": "فشل حذف المرحلة التعليمية.",
+    "deleteConfirm": "هل أنت متأكد من حذف هذه المرحلة التعليمية؟",
+    "yes": "نعم",
+    "no": "لا",
+    "dialogs": {
+      "addTitle": "إضافة مرحلة تعليمية",
+      "editTitle": "تعديل مرحلة تعليمية",
+      "deleteTitle": "تأكيد الحذف"
+    },
+    "fields": {
+      "name": "اسم المرحلة",
+      "minimumStudentAge": "عمر التلميذ المطلوب (الحد الأدنى)",
+      "teachingLanguage": "لغة التدريس",
+      "isMixedStage": "مرحلة مختلطة (تقبل البنين والبنات معًا)"
+    },
+    "table": {
+      "name": "اسم المرحلة",
+      "minimumStudentAge": "العمر الأدنى",
+      "teachingLanguage": "لغة التدريس",
+      "isMixedStage": "مرحلة مختلطة",
+      "actions": "الإجراءات"
+    },
+    "validation": {
+      "invalidField": "يرجى إدخال قيمة صحيحة.",
+      "checkRequiredFields": "يرجى مراجعة الحقول المحددة.",
+      "nameTooShort": "اسم المرحلة يجب أن يحتوي على حرفين على الأقل.",
+      "minimumAgeInvalid": "عمر التلميذ المطلوب يجب أن يكون 3 سنوات أو أكثر.",
+      "teachingLanguageTooShort": "لغة التدريس يجب أن تحتوي على حرفين على الأقل."
+    }
+  },
+  "Grades": {
+    "title": "الصفوف الدراسية",
+    "description": "إدارة الصفوف وربط كل صف بالمرحلة التعليمية المناسبة.",
+    "loading": "جاري تحميل الصفوف الدراسية...",
+    "existingGrades": "الصفوف الدراسية الحالية",
+    "emptyState": "لا توجد صفوف دراسية حتى الآن.",
+    "newGrade": "صف دراسي جديد",
+    "cancel": "إلغاء",
+    "closeDialog": "إغلاق النافذة",
+    "create": "إنشاء الصف",
+    "update": "تحديث الصف",
+    "saving": "جاري الحفظ...",
+    "saved": "تم حفظ الصف الدراسي بنجاح.",
+    "saveFailed": "فشل حفظ الصف الدراسي.",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "deleted": "تم حذف الصف الدراسي بنجاح.",
+    "deleteFailed": "فشل حذف الصف الدراسي.",
+    "deleteConfirm": "هل أنت متأكد من حذف هذا الصف الدراسي؟",
+    "yes": "نعم",
+    "no": "لا",
+    "activeHelpText": "هذا الاختيار يسمح لك بتسجيل طلاب جدد، وإضافة دفعات مالية للطلاب.",
+    "dialogs": {
+      "addTitle": "إضافة صف دراسي",
+      "editTitle": "تعديل صف دراسي",
+      "deleteTitle": "تأكيد الحذف"
+    },
+    "fields": {
+      "name": "اسم الصف",
+      "educationalStage": "المرحلة التعليمية",
+      "selectEducationalStage": "اختر المرحلة التعليمية",
+      "minimumPassingGrade": "الحد الأدنى لدرجة النجاح (%)",
+      "isActive": "فعال"
+    },
+    "table": {
+      "name": "اسم الصف",
+      "educationalStage": "المرحلة التابعة",
+      "minimumPassingGrade": "الحد الأدنى للنجاح",
+      "isActive": "فعال",
+      "actions": "الإجراءات"
+    },
+    "validation": {
+      "invalidField": "يرجى إدخال قيمة صحيحة.",
+      "checkRequiredFields": "يرجى مراجعة الحقول المحددة.",
+      "nameTooShort": "اسم الصف يجب أن يحتوي على حرفين على الأقل.",
+      "educationalStageRequired": "يرجى اختيار المرحلة التعليمية.",
+      "minimumPassingGradeInvalid": "الحد الأدنى لدرجة النجاح يجب أن يكون بين 0 و 100.",
+      "duplicateName": "لا يمكن تكرار اسم الصف. هذا الاسم موجود بالفعل."
+    }
+  },
+  "Sections": {
+    "title": "الشعب الدراسية",
+    "description": "تقسيم الصفوف إلى شعب أصغر وإدارة بيانات كل شعبة.",
+    "loading": "جاري تحميل الشعب الدراسية...",
+    "existingSections": "الشعب الدراسية الحالية",
+    "emptyState": "لا توجد شعب دراسية حتى الآن.",
+    "newSection": "شعبة دراسية جديدة",
+    "cancel": "إلغاء",
+    "closeDialog": "إغلاق النافذة",
+    "create": "إنشاء الشعبة",
+    "update": "تحديث الشعبة",
+    "saving": "جاري الحفظ...",
+    "saved": "تم حفظ الشعبة الدراسية بنجاح.",
+    "saveFailed": "فشل حفظ الشعبة الدراسية.",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "deleted": "تم حذف الشعبة الدراسية بنجاح.",
+    "deleteFailed": "فشل حذف الشعبة الدراسية.",
+    "deleteConfirm": "هل أنت متأكد من حذف هذه الشعبة الدراسية؟",
+    "dialogs": {
+      "addTitle": "إضافة شعبة دراسية",
+      "editTitle": "تعديل شعبة دراسية",
+      "deleteTitle": "تأكيد الحذف"
+    },
+    "fields": {
+      "name": "اسم الشعبة",
+      "grade": "الصف الدراسي التابع",
+      "selectGrade": "اختر الصف الدراسي",
+      "defaultCapacity": "السعة الافتراضية للشعبة",
+      "supervisor": "مسؤول الشعبة",
+      "selectSupervisor": "اختر مسؤول الشعبة"
+    },
+    "table": {
+      "name": "اسم الشعبة",
+      "grade": "الصف الدراسي",
+      "defaultCapacity": "السعة",
+      "supervisor": "مسؤول الشعبة",
+      "actions": "الإجراءات"
+    },
+    "validation": {
+      "invalidField": "يرجى إدخال قيمة صحيحة.",
+      "checkRequiredFields": "يرجى مراجعة الحقول المحددة.",
+      "nameTooShort": "اسم الشعبة يجب أن يحتوي على حرفين على الأقل.",
+      "gradeRequired": "يرجى اختيار الصف الدراسي التابع.",
+      "defaultCapacityInvalid": "السعة الافتراضية يجب أن تكون بين 1 و 200.",
+      "supervisorRequired": "يرجى اختيار مسؤول الشعبة."
+    }
+  },
+  "Subjects": {
+    "title": "المواد الدراسية",
+    "description": "إدارة المواد وربطها بالصفوف والمعلمين مع إعدادات الحصص والتقييم.",
+    "loading": "جاري تحميل المواد الدراسية...",
+    "existingSubjects": "المواد الدراسية الحالية",
+    "emptyState": "لا توجد مواد دراسية حتى الآن.",
+    "newSubject": "مادة دراسية جديدة",
+    "cancel": "إلغاء",
+    "closeDialog": "إغلاق النافذة",
+    "create": "إنشاء المادة",
+    "update": "تحديث المادة",
+    "saving": "جاري الحفظ...",
+    "saved": "تم حفظ المادة الدراسية بنجاح.",
+    "saveFailed": "فشل حفظ المادة الدراسية.",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "deleted": "تم حذف المادة الدراسية بنجاح.",
+    "deleteFailed": "فشل حذف المادة الدراسية.",
+    "deleteConfirm": "هل أنت متأكد من حذف هذه المادة الدراسية؟",
+    "dialogs": {
+      "addTitle": "إضافة مادة دراسية",
+      "editTitle": "تعديل مادة دراسية",
+      "deleteTitle": "تأكيد الحذف"
+    },
+    "types": {
+      "core": "أساسية",
+      "enrichment": "إثرائية"
+    },
+    "fields": {
+      "name": "اسم المادة",
+      "type": "نوع المادة",
+      "teachingLanguage": "لغة التدريس",
+      "gradeConfigsTitle": "إعدادات الصفوف المرتبطة",
+      "addGradeConfig": "إضافة صف للمادة",
+      "grade": "الصف الدراسي",
+      "selectGrade": "اختر الصف الدراسي",
+      "weeklySessions": "عدد الحصص أسبوعيًا",
+      "lessonDurationMinutes": "مدة الحصة (بالدقائق)",
+      "teachers": "المعلمين",
+      "includedInAverage": "المادة تدخل في المعدل",
+      "needsLab": "مادة تحتاج إلى مختبر عملي",
+      "hasQuestionBank": "وجود بنك أسئلة",
+      "minimumPassingGrade": "الحد الأدنى للنجاح (%)",
+      "scoreBreakdownTitle": "تقسيم الدرجات",
+      "addScoreBreakdown": "إضافة نشاط",
+      "activityName": "اسم النشاط",
+      "activityPercentage": "النسبة المئوية",
+      "totalPercentage": "مجموع النسب"
+    },
+    "table": {
+      "name": "اسم المادة",
+      "type": "نوع المادة",
+      "teachingLanguage": "لغة التدريس",
+      "grades": "الصفوف المرتبطة",
+      "teachers": "المعلمون",
+      "minimumPassingGrade": "الحد الأدنى للنجاح",
+      "actions": "الإجراءات"
+    },
+    "validation": {
+      "invalidField": "يرجى إدخال قيمة صحيحة.",
+      "checkRequiredFields": "يرجى مراجعة الحقول المحددة.",
+      "nameTooShort": "اسم المادة يجب أن يحتوي على حرفين على الأقل.",
+      "teachingLanguageTooShort": "لغة التدريس يجب أن تحتوي على حرفين على الأقل.",
+      "minimumPassingGradeInvalid": "الحد الأدنى للنجاح يجب أن يكون بين 0 و 100.",
+      "atLeastOneGradeConfig": "يجب إضافة صف دراسي واحد على الأقل لهذه المادة.",
+      "gradeRequired": "يرجى اختيار الصف الدراسي.",
+      "weeklySessionsInvalid": "عدد الحصص الأسبوعية يجب أن يكون بين 1 و 20.",
+      "lessonDurationInvalid": "مدة الحصة يجب أن تكون بين 20 و 180 دقيقة.",
+      "atLeastOneTeacher": "يرجى اختيار معلم واحد على الأقل.",
+      "duplicateTeacher": "لا يمكن اختيار نفس المعلم أكثر من مرة.",
+      "atLeastOneScoreBreakdown": "يجب إضافة عنصر واحد على الأقل في تقسيم الدرجات.",
+      "activityNameTooShort": "اسم النشاط يجب أن يحتوي على حرفين على الأقل.",
+      "activityPercentageInvalid": "نسبة النشاط يجب أن تكون بين 0 و 100.",
+      "duplicateGradeConfig": "لا يمكن تكرار نفس الصف داخل المادة.",
+      "scoreBreakdownMustTotal100": "مجموع نسب تقسيم الدرجات يجب أن يساوي 100%.",
+      "duplicateName": "اسم المادة موجود بالفعل ولا يمكن تكراره."
+    }
+  },
+  "Classrooms": {
+    "title": "القاعات",
+    "description": "تنظيم القاعات والمختبرات والأماكن الفيزيائية داخل المدرسة.",
+    "loading": "جاري تحميل القاعات...",
+    "existingClassrooms": "القاعات الحالية",
+    "emptyState": "لا توجد قاعات حتى الآن.",
+    "newClassroom": "قاعة جديدة",
+    "cancel": "إلغاء",
+    "closeDialog": "إغلاق النافذة",
+    "create": "إنشاء القاعة",
+    "update": "تحديث القاعة",
+    "saving": "جاري الحفظ...",
+    "saved": "تم حفظ القاعة بنجاح.",
+    "saveFailed": "فشل حفظ القاعة.",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "deleted": "تم حذف القاعة بنجاح.",
+    "deleteFailed": "فشل حذف القاعة.",
+    "deleteConfirm": "هل أنت متأكد من حذف هذه القاعة؟",
+    "dialogs": {
+      "addTitle": "إضافة قاعة",
+      "editTitle": "تعديل قاعة",
+      "deleteTitle": "تأكيد الحذف"
+    },
+    "types": {
+      "teaching": "تدريسية",
+      "lab": "مختبر",
+      "computer": "كمبيوتر",
+      "theater": "مسرح",
+      "sports": "رياضة"
+    },
+    "fields": {
+      "name": "اسم القاعة",
+      "roomNumber": "رقم القاعة",
+      "capacity": "سعة القاعة",
+      "type": "نوع القاعة",
+      "buildingName": "اسم المبنى",
+      "floorNumber": "رقم الطابق"
+    },
+    "table": {
+      "name": "اسم القاعة",
+      "roomNumber": "رقم القاعة",
+      "capacity": "السعة",
+      "type": "النوع",
+      "buildingName": "المبنى",
+      "floorNumber": "الطابق",
+      "actions": "الإجراءات"
+    },
+    "validation": {
+      "invalidField": "يرجى إدخال قيمة صحيحة.",
+      "checkRequiredFields": "يرجى مراجعة الحقول المحددة.",
+      "nameTooShort": "اسم القاعة يجب أن يحتوي على حرفين على الأقل.",
+      "roomNumberRequired": "يرجى إدخال رقم القاعة.",
+      "capacityInvalid": "سعة القاعة يجب أن تكون بين 1 و 500.",
+      "buildingNameTooShort": "اسم المبنى يجب أن يحتوي على حرفين على الأقل.",
+      "floorNumberRequired": "يرجى إدخال رقم الطابق."
+    }
+  },
+  "TimetableSettings": {
+    "title": "إعدادات الحصص الدراسية",
+    "description": "توليد الحصص الدراسية تلقائيًا حسب العدد المُدخل، مع إدارة الأيام والأوقات والاستراحات.",
+    "loading": "جاري تحميل إعدادات الحصص...",
+    "save": "حفظ إعدادات الحصص",
+    "saving": "جاري الحفظ...",
+    "saved": "تم حفظ إعدادات الحصص بنجاح.",
+    "saveFailed": "فشل حفظ إعدادات الحصص.",
+    "days": {
+      "monday": "الاثنين",
+      "tuesday": "الثلاثاء",
+      "wednesday": "الأربعاء",
+      "thursday": "الخميس",
+      "friday": "الجمعة",
+      "saturday": "السبت",
+      "sunday": "الأحد"
+    },
+    "defaults": {
+      "sessionName": "الحصة"
+    },
+    "fields": {
+      "numberOfSessions": "عدد الحصص الدراسية",
+      "sessionRowTitle": "الحصة",
+      "sessionName": "اسم الحصة",
+      "teachingDays": "الأيام التدريسية",
+      "startTime": "وقت البداية",
+      "endTime": "وقت النهاية",
+      "durationMinutes": "مدة الحصة (بالدقائق)",
+      "requiresAttendance": "تسجيل الحضور",
+      "hasBreakAfter": "وجود استراحة بعد الحصة",
+      "breakName": "اسم الاستراحة",
+      "breakStartTime": "وقت بداية الاستراحة",
+      "breakEndTime": "وقت نهاية الاستراحة",
+      "breakDurationMinutes": "مدة الاستراحة (بالدقائق)"
+    },
+    "validation": {
+      "invalidField": "يرجى إدخال قيمة صحيحة.",
+      "checkRequiredFields": "يرجى مراجعة الحقول المحددة.",
+      "nameTooShort": "اسم الحصة يجب أن يحتوي على حرفين على الأقل.",
+      "teachingDaysRequired": "يرجى اختيار يوم تدريسي واحد على الأقل.",
+      "invalidTime": "يرجى إدخال وقت صحيح.",
+      "endTimeBeforeStart": "وقت نهاية الحصة يجب أن يكون بعد وقت البداية.",
+      "durationInvalid": "مدة الحصة غير صحيحة. تحقق من وقت البداية والنهاية.",
+      "breakNameTooShort": "اسم الاستراحة يجب أن يحتوي على حرفين على الأقل.",
+      "breakStartTimeRequired": "يرجى إدخال وقت بداية الاستراحة.",
+      "breakEndTimeRequired": "يرجى إدخال وقت نهاية الاستراحة.",
+      "breakEndTimeBeforeStart": "وقت نهاية الاستراحة يجب أن يكون بعد وقت البداية.",
+      "breakDurationInvalid": "مدة الاستراحة غير صحيحة.",
+      "numberOfSessionsInvalid": "عدد الحصص يجب أن يكون بين 1 و 20.",
+      "sessionsCountMismatch": "عدد صفوف الحصص لا يطابق العدد المُدخل."
+    }
   }
 }

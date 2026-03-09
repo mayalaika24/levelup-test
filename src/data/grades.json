@@ -1,0 +1,9 @@
+[
+  {
+    "id": "grade-1-primary",
+    "name": "الصف الأول الابتدائي",
+    "educationalStageId": "stage-primary",
+    "minimumPassingGrade": 50,
+    "isActive": true
+  }
+]

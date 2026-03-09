@@ -1,0 +1,9 @@
+[
+  {
+    "id": "section-a",
+    "name": "شعبة أ",
+    "gradeId": "grade-1-primary",
+    "defaultCapacity": 30,
+    "supervisorUserId": "user-ahmed"
+  }
+]

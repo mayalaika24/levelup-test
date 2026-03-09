@@ -1,0 +1,37 @@
+[
+  {
+    "id": "subject-math",
+    "name": "الرياضيات",
+    "type": "core",
+    "teachingLanguage": "العربية",
+    "gradeConfigs": [
+      {
+        "gradeId": "grade-1-primary",
+        "weeklySessions": 5,
+        "lessonDurationMinutes": 45
+      }
+    ],
+    "teacherIds": [
+      "user-ahmed",
+      "user-nour"
+    ],
+    "includedInAverage": true,
+    "needsLab": false,
+    "hasQuestionBank": true,
+    "minimumPassingGrade": 50,
+    "scoreBreakdown": [
+      {
+        "activityName": "امتحان شهري",
+        "percentage": 20
+      },
+      {
+        "activityName": "مشاركة",
+        "percentage": 10
+      },
+      {
+        "activityName": "الامتحان النهائي",
+        "percentage": 70
+      }
+    ]
+  }
+]

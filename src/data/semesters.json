@@ -1,0 +1,13 @@
+[
+  {
+    "id": "sem-1",
+    "name": "الفصل الأول",
+    "academicYearId": "ay-2025-2026",
+    "semesterStartDate": "2025-09-01",
+    "semesterEndDate": "2026-01-20",
+    "classesStartDate": "2025-09-10",
+    "classesEndDate": "2026-01-05",
+    "finalExamDate": "2026-01-15",
+    "assessmentType": "midterm"
+  }
+]

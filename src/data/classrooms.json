@@ -1,0 +1,11 @@
+[
+  {
+    "id": "classroom-physics-lab",
+    "name": "قاعة الفيزياء",
+    "roomNumber": "B-204",
+    "capacity": 30,
+    "type": "lab",
+    "buildingName": "المبنى العلمي",
+    "floorNumber": "2"
+  }
+]

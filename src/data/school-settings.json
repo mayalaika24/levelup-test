@@ -1,0 +1,26 @@
+{
+  "schoolNameAr": "ليفل اب",
+  "schoolNameEn": "LevelUp Academy",
+  "foundedYear": 2024,
+  "currency": "EGP",
+  "allowMultiCurrency": true,
+  "commercialRegisterNumber": "CR-10293847",
+  "showLogoInInvoices": true,
+  "timezone": "Asia/Riyadh",
+  "defaultSystemLanguage": "en",
+  "notificationsEnabled": true,
+  "country": "Saudi Arabia",
+  "city": "Riyadh",
+  "detailedAddress": "King Fahd Road, Al Olaya District, Building 12",
+  "primaryPhone": "+966 500 000 000",
+  "primaryEmail": "info@levelup.edu.sa",
+  "website": "https://www.levelup.edu.sa",
+  "socialMedia": {
+    "facebook": "",
+    "instagram": "",
+    "x": "",
+    "linkedIn": ""
+  },
+  "logoFileName": "",
+  "sealFileName": "Logo_500.png"
+}

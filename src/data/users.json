@@ -1,0 +1,22 @@
+[
+  {
+    "id": "user-maya",
+    "name": "Maya Layka",
+    "role": "admin"
+  },
+  {
+    "id": "user-ahmed",
+    "name": "Ahmed Salah",
+    "role": "teacher"
+  },
+  {
+    "id": "user-nour",
+    "name": "Nour Ali",
+    "role": "teacher"
+  },
+  {
+    "id": "user-sara",
+    "name": "Sara Hassan",
+    "role": "teacher"
+  }
+]

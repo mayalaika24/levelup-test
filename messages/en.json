@@ -22,5 +22,553 @@
       "usernameInvalid": "Please enter a valid username (3+ characters, letters/numbers/._- only)",
       "passwordInvalid": "Please enter a valid password (8+ characters)"
     }
+  },
+  "DashboardLayout": {
+    "sidebarTitle": "School Structure",
+    "goodMorning": "Good morning,",
+    "goodEvening": "Good evening,",
+    "defaultUser": "User",
+    "logout": "Logout"
+  },
+  "SchoolStructure": {
+    "title": "School Structure",
+    "settings": "School Settings",
+    "academicYear": "Academic Year",
+    "semesters": "Semesters",
+    "educationalStages": "Educational Stages",
+    "grades": "Grades",
+    "sections": "Sections",
+    "subjects": "Subjects",
+    "classrooms": "Classrooms",
+    "timetableSettings": "Timetable Settings",
+    "badges": {
+      "settings": "Setting",
+      "configuration": "Configuration"
+    }
+  },
+  "SchoolSettings": {
+    "title": "School Settings",
+    "description": "Manage school profile, contact channels, and social presence from one place.",
+    "loading": "Loading school settings...",
+    "save": "Save changes",
+    "saving": "Saving...",
+    "saveFailed": "Failed to save school settings.",
+    "loadFailed": "Failed to load school settings.",
+    "saved": "School settings were saved successfully.",
+    "uploadHint": {
+      "image": "Choose image file",
+      "file": "Choose file"
+    },
+    "languages": {
+      "ar": "Arabic",
+      "en": "English"
+    },
+    "basicInfo": {
+      "title": "Basic Information",
+      "schoolNameAr": "School name (Arabic)",
+      "schoolNameEn": "School name (English)",
+      "logo": "Logo",
+      "foundedYear": "Founded year",
+      "currency": "Currency",
+      "allowMultiCurrency": "Allow multiple currencies",
+      "commercialRegisterNumber": "Commercial register number",
+      "showLogoInInvoices": "Show logo in invoices",
+      "timezone": "Timezone",
+      "defaultSystemLanguage": "Default system language",
+      "notificationsEnabled": "Enable notifications",
+      "seal": "School seal"
+    },
+    "contactInfo": {
+      "title": "Contact Information",
+      "country": "Country",
+      "city": "City",
+      "detailedAddress": "Detailed address",
+      "primaryPhone": "Primary phone",
+      "primaryEmail": "Primary email",
+      "website": "Website"
+    },
+    "socialMedia": {
+      "title": "Social Media",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "x": "X (Twitter)",
+      "linkedIn": "LinkedIn"
+    },
+    "validation": {
+      "invalidField": "Please enter a valid value",
+      "checkRequiredFields": "Please review the highlighted fields.",
+      "logoImageOnly": "Logo must be an image file.",
+      "sealSize": "School seal file size must not exceed 5 MB."
+    }
+  },
+  "AcademicYear": {
+    "title": "Academic Year",
+    "loading": "Loading academic years...",
+    "existingAcademicYears": "Existing Academic Years",
+    "emptyState": "No academic years yet.",
+    "newAcademicYear": "New Academic Year",
+    "cancel": "Cancel",
+    "closeDialog": "Close dialog",
+    "create": "Create Academic Year",
+    "update": "Update Academic Year",
+    "saving": "Saving...",
+    "saved": "Academic year saved successfully.",
+    "saveFailed": "Failed to save academic year.",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleted": "Academic year deleted successfully.",
+    "deleteFailed": "Failed to delete academic year.",
+    "deleteConfirm": "Are you sure you want to delete this academic year?",
+    "deleteBlockedByActiveStudent": "This academic year cannot be deleted because it is linked to an active student record.",
+    "activeBadge": "Active",
+    "linkedToActiveStudentYes": "Linked to an active student record",
+    "linkedToActiveStudentNo": "Not linked to an active student record",
+    "activeHelpText": "This option allows you to register new students, create classes, and add financial payments for students.",
+    "dialogs": {
+      "addTitle": "Add Academic Year",
+      "editTitle": "Edit Academic Year",
+      "deleteTitle": "Confirm Delete"
+    },
+    "table": {
+      "name": "Name",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "enrollmentWindow": "Enrollment Window",
+      "numberOfSemesters": "Semesters",
+      "isActive": "Active",
+      "activeStudentLink": "Active Student Link",
+      "actions": "Actions"
+    },
+    "yes": "Yes",
+    "no": "No",
+    "fields": {
+      "name": "Academic year name",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "enrollmentStartDate": "Enrollment start date",
+      "enrollmentEndDate": "Enrollment end date",
+      "allowGradeEditAfterEnd": "Allow grade edits after academic year ends",
+      "allowStudentFileEditAfterEnd": "Allow student file edits after academic year ends",
+      "numberOfSemesters": "Number of semesters",
+      "isActive": "Active"
+    },
+    "hierarchy": {
+      "title": "Academic Year Hierarchy",
+      "description": "Select an academic year to view its status, details, and linked semesters in an interactive hierarchy.",
+      "selectAcademicYear": "Select academic year",
+      "status": "Status (Active)",
+      "expectedSemesters": "Expected semesters",
+      "configuredSemesters": "Configured linked semesters",
+      "enrollmentWindow": "Enrollment window",
+      "structureTitle": "Academic Year Structure",
+      "noSelection": "No academic year is available to display.",
+      "noSemestersLinked": "No semesters are linked to this academic year yet.",
+      "semesterDates": "Semester dates",
+      "classesDates": "Classes dates",
+      "finalExamDate": "Final exam date",
+      "assessmentType": "Assessment type"
+    },
+    "validation": {
+      "invalidField": "Please enter a valid value",
+      "checkRequiredFields": "Please review the highlighted fields."
+    }
+  },
+  "Semesters": {
+    "title": "Semesters",
+    "description": "Manage semesters and link each semester to an academic year.",
+    "loading": "Loading semesters...",
+    "existingSemesters": "Existing Semesters",
+    "emptyState": "No semesters yet.",
+    "newSemester": "New Semester",
+    "cancel": "Cancel",
+    "closeDialog": "Close dialog",
+    "create": "Create Semester",
+    "update": "Update Semester",
+    "saving": "Saving...",
+    "saved": "Semester saved successfully.",
+    "saveFailed": "Failed to save semester.",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleted": "Semester deleted successfully.",
+    "deleteFailed": "Failed to delete semester.",
+    "deleteConfirm": "Are you sure you want to delete this semester?",
+    "dialogs": {
+      "addTitle": "Add Semester",
+      "editTitle": "Edit Semester",
+      "deleteTitle": "Confirm Delete"
+    },
+    "assessmentTypes": {
+      "monthly": "Monthly",
+      "midterm": "Midterm",
+      "final": "Final"
+    },
+    "fields": {
+      "name": "Semester name",
+      "academicYear": "Academic year",
+      "selectAcademicYear": "Select academic year",
+      "semesterStartDate": "Semester start date",
+      "semesterEndDate": "Semester end date",
+      "classesStartDate": "Classes start date",
+      "classesEndDate": "Classes end date",
+      "finalExamDate": "Final exam date",
+      "assessmentType": "Assessment type"
+    },
+    "table": {
+      "name": "Name",
+      "academicYear": "Academic Year",
+      "semesterRange": "Semester Dates",
+      "classesRange": "Classes Dates",
+      "finalExamDate": "Final Exam Date",
+      "assessmentType": "Assessment Type",
+      "actions": "Actions"
+    },
+    "validation": {
+      "invalidField": "Please enter a valid value.",
+      "checkRequiredFields": "Please review the highlighted fields.",
+      "nameTooShort": "Semester name must contain at least 2 characters.",
+      "academicYearRequired": "Please select the related academic year.",
+      "semesterStartDateRequired": "Please enter the semester start date.",
+      "semesterEndDateRequired": "Please enter the semester end date.",
+      "classesStartDateRequired": "Please enter the classes start date.",
+      "classesEndDateRequired": "Please enter the classes end date.",
+      "finalExamDateRequired": "Please enter the final exam date.",
+      "assessmentTypeRequired": "Please select an assessment type.",
+      "semesterEndBeforeStart": "Semester end date must be after semester start date.",
+      "classesEndBeforeStart": "Classes end date must be after classes start date.",
+      "finalExamBeforeSemesterStart": "Final exam date cannot be before semester start date."
+    }
+  },
+  "EducationalStages": {
+    "title": "Educational Stages",
+    "description": "Manage educational stages used later for student classification.",
+    "loading": "Loading educational stages...",
+    "existingStages": "Existing Educational Stages",
+    "emptyState": "No educational stages yet.",
+    "newStage": "New Educational Stage",
+    "cancel": "Cancel",
+    "closeDialog": "Close dialog",
+    "create": "Create Stage",
+    "update": "Update Stage",
+    "saving": "Saving...",
+    "saved": "Educational stage saved successfully.",
+    "saveFailed": "Failed to save educational stage.",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleted": "Educational stage deleted successfully.",
+    "deleteFailed": "Failed to delete educational stage.",
+    "deleteConfirm": "Are you sure you want to delete this educational stage?",
+    "yes": "Yes",
+    "no": "No",
+    "dialogs": {
+      "addTitle": "Add Educational Stage",
+      "editTitle": "Edit Educational Stage",
+      "deleteTitle": "Confirm Delete"
+    },
+    "fields": {
+      "name": "Stage name",
+      "minimumStudentAge": "Required student age (minimum)",
+      "teachingLanguage": "Teaching language",
+      "isMixedStage": "Mixed stage (accepts boys and girls)"
+    },
+    "table": {
+      "name": "Stage Name",
+      "minimumStudentAge": "Minimum Age",
+      "teachingLanguage": "Teaching Language",
+      "isMixedStage": "Mixed Stage",
+      "actions": "Actions"
+    },
+    "validation": {
+      "invalidField": "Please enter a valid value.",
+      "checkRequiredFields": "Please review the highlighted fields.",
+      "nameTooShort": "Stage name must contain at least 2 characters.",
+      "minimumAgeInvalid": "Required student age must be 3 years or more.",
+      "teachingLanguageTooShort": "Teaching language must contain at least 2 characters."
+    }
+  },
+  "Grades": {
+    "title": "Grades",
+    "description": "Manage grades and link each grade to its educational stage.",
+    "loading": "Loading grades...",
+    "existingGrades": "Existing Grades",
+    "emptyState": "No grades yet.",
+    "newGrade": "New Grade",
+    "cancel": "Cancel",
+    "closeDialog": "Close dialog",
+    "create": "Create Grade",
+    "update": "Update Grade",
+    "saving": "Saving...",
+    "saved": "Grade saved successfully.",
+    "saveFailed": "Failed to save grade.",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleted": "Grade deleted successfully.",
+    "deleteFailed": "Failed to delete grade.",
+    "deleteConfirm": "Are you sure you want to delete this grade?",
+    "yes": "Yes",
+    "no": "No",
+    "activeHelpText": "This option allows you to register new students and add financial payments for students.",
+    "dialogs": {
+      "addTitle": "Add Grade",
+      "editTitle": "Edit Grade",
+      "deleteTitle": "Confirm Delete"
+    },
+    "fields": {
+      "name": "Grade name",
+      "educationalStage": "Educational stage",
+      "selectEducationalStage": "Select educational stage",
+      "minimumPassingGrade": "Minimum passing grade (%)",
+      "isActive": "Active"
+    },
+    "table": {
+      "name": "Grade Name",
+      "educationalStage": "Educational Stage",
+      "minimumPassingGrade": "Minimum Passing Grade",
+      "isActive": "Active",
+      "actions": "Actions"
+    },
+    "validation": {
+      "invalidField": "Please enter a valid value.",
+      "checkRequiredFields": "Please review the highlighted fields.",
+      "nameTooShort": "Grade name must contain at least 2 characters.",
+      "educationalStageRequired": "Please select the educational stage.",
+      "minimumPassingGradeInvalid": "Minimum passing grade must be between 0 and 100.",
+      "duplicateName": "Grade name already exists. Duplicate names are not allowed."
+    }
+  },
+  "Sections": {
+    "title": "Sections",
+    "description": "Split grades into smaller sections and manage section details.",
+    "loading": "Loading sections...",
+    "existingSections": "Existing Sections",
+    "emptyState": "No sections yet.",
+    "newSection": "New Section",
+    "cancel": "Cancel",
+    "closeDialog": "Close dialog",
+    "create": "Create Section",
+    "update": "Update Section",
+    "saving": "Saving...",
+    "saved": "Section saved successfully.",
+    "saveFailed": "Failed to save section.",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleted": "Section deleted successfully.",
+    "deleteFailed": "Failed to delete section.",
+    "deleteConfirm": "Are you sure you want to delete this section?",
+    "dialogs": {
+      "addTitle": "Add Section",
+      "editTitle": "Edit Section",
+      "deleteTitle": "Confirm Delete"
+    },
+    "fields": {
+      "name": "Section name",
+      "grade": "Related grade",
+      "selectGrade": "Select grade",
+      "defaultCapacity": "Default section capacity",
+      "supervisor": "Section supervisor",
+      "selectSupervisor": "Select section supervisor"
+    },
+    "table": {
+      "name": "Section Name",
+      "grade": "Grade",
+      "defaultCapacity": "Capacity",
+      "supervisor": "Supervisor",
+      "actions": "Actions"
+    },
+    "validation": {
+      "invalidField": "Please enter a valid value.",
+      "checkRequiredFields": "Please review the highlighted fields.",
+      "nameTooShort": "Section name must contain at least 2 characters.",
+      "gradeRequired": "Please select the related grade.",
+      "defaultCapacityInvalid": "Default capacity must be between 1 and 200.",
+      "supervisorRequired": "Please select a section supervisor."
+    }
+  },
+  "Subjects": {
+    "title": "Subjects",
+    "description": "Manage subjects and link them to grades and teachers with schedule and assessment settings.",
+    "loading": "Loading subjects...",
+    "existingSubjects": "Existing Subjects",
+    "emptyState": "No subjects yet.",
+    "newSubject": "New Subject",
+    "cancel": "Cancel",
+    "closeDialog": "Close dialog",
+    "create": "Create Subject",
+    "update": "Update Subject",
+    "saving": "Saving...",
+    "saved": "Subject saved successfully.",
+    "saveFailed": "Failed to save subject.",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleted": "Subject deleted successfully.",
+    "deleteFailed": "Failed to delete subject.",
+    "deleteConfirm": "Are you sure you want to delete this subject?",
+    "dialogs": {
+      "addTitle": "Add Subject",
+      "editTitle": "Edit Subject",
+      "deleteTitle": "Confirm Delete"
+    },
+    "types": {
+      "core": "Core",
+      "enrichment": "Enrichment"
+    },
+    "fields": {
+      "name": "Subject name",
+      "type": "Subject type",
+      "teachingLanguage": "Teaching language",
+      "gradeConfigsTitle": "Linked grade settings",
+      "addGradeConfig": "Add grade to subject",
+      "grade": "Grade",
+      "selectGrade": "Select grade",
+      "weeklySessions": "Weekly sessions",
+      "lessonDurationMinutes": "Lesson duration (minutes)",
+      "teachers": "Teachers",
+      "includedInAverage": "Subject is included in average",
+      "needsLab": "Subject requires practical lab",
+      "hasQuestionBank": "Question bank enabled",
+      "minimumPassingGrade": "Minimum passing grade (%)",
+      "scoreBreakdownTitle": "Score breakdown",
+      "addScoreBreakdown": "Add activity",
+      "activityName": "Activity name",
+      "activityPercentage": "Percentage",
+      "totalPercentage": "Total percentage"
+    },
+    "table": {
+      "name": "Subject Name",
+      "type": "Type",
+      "teachingLanguage": "Teaching Language",
+      "grades": "Linked Grades",
+      "teachers": "Teachers",
+      "minimumPassingGrade": "Minimum Passing Grade",
+      "actions": "Actions"
+    },
+    "validation": {
+      "invalidField": "Please enter a valid value.",
+      "checkRequiredFields": "Please review the highlighted fields.",
+      "nameTooShort": "Subject name must contain at least 2 characters.",
+      "teachingLanguageTooShort": "Teaching language must contain at least 2 characters.",
+      "minimumPassingGradeInvalid": "Minimum passing grade must be between 0 and 100.",
+      "atLeastOneGradeConfig": "Please add at least one grade configuration.",
+      "gradeRequired": "Please select a grade.",
+      "weeklySessionsInvalid": "Weekly sessions must be between 1 and 20.",
+      "lessonDurationInvalid": "Lesson duration must be between 20 and 180 minutes.",
+      "atLeastOneTeacher": "Please select at least one teacher.",
+      "duplicateTeacher": "A teacher cannot be selected more than once.",
+      "atLeastOneScoreBreakdown": "Please add at least one score breakdown item.",
+      "activityNameTooShort": "Activity name must contain at least 2 characters.",
+      "activityPercentageInvalid": "Activity percentage must be between 0 and 100.",
+      "duplicateGradeConfig": "The same grade cannot be linked twice to this subject.",
+      "scoreBreakdownMustTotal100": "Score breakdown percentages must total exactly 100%.",
+      "duplicateName": "Subject name already exists. Duplicate names are not allowed."
+    }
+  },
+  "Classrooms": {
+    "title": "Classrooms",
+    "description": "Organize physical classrooms and facilities in the school.",
+    "loading": "Loading classrooms...",
+    "existingClassrooms": "Existing Classrooms",
+    "emptyState": "No classrooms yet.",
+    "newClassroom": "New Classroom",
+    "cancel": "Cancel",
+    "closeDialog": "Close dialog",
+    "create": "Create Classroom",
+    "update": "Update Classroom",
+    "saving": "Saving...",
+    "saved": "Classroom saved successfully.",
+    "saveFailed": "Failed to save classroom.",
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleted": "Classroom deleted successfully.",
+    "deleteFailed": "Failed to delete classroom.",
+    "deleteConfirm": "Are you sure you want to delete this classroom?",
+    "dialogs": {
+      "addTitle": "Add Classroom",
+      "editTitle": "Edit Classroom",
+      "deleteTitle": "Confirm Delete"
+    },
+    "types": {
+      "teaching": "Teaching",
+      "lab": "Lab",
+      "computer": "Computer",
+      "theater": "Theater",
+      "sports": "Sports"
+    },
+    "fields": {
+      "name": "Classroom name",
+      "roomNumber": "Room number",
+      "capacity": "Classroom capacity",
+      "type": "Classroom type",
+      "buildingName": "Building name",
+      "floorNumber": "Floor number"
+    },
+    "table": {
+      "name": "Classroom Name",
+      "roomNumber": "Room Number",
+      "capacity": "Capacity",
+      "type": "Type",
+      "buildingName": "Building",
+      "floorNumber": "Floor",
+      "actions": "Actions"
+    },
+    "validation": {
+      "invalidField": "Please enter a valid value.",
+      "checkRequiredFields": "Please review the highlighted fields.",
+      "nameTooShort": "Classroom name must contain at least 2 characters.",
+      "roomNumberRequired": "Please enter the room number.",
+      "capacityInvalid": "Classroom capacity must be between 1 and 500.",
+      "buildingNameTooShort": "Building name must contain at least 2 characters.",
+      "floorNumberRequired": "Please enter the floor number."
+    }
+  },
+  "TimetableSettings": {
+    "title": "Timetable Settings",
+    "description": "Automatically generate lessons based on the entered count, with day, time, and break management.",
+    "loading": "Loading timetable settings...",
+    "save": "Save Timetable Settings",
+    "saving": "Saving...",
+    "saved": "Timetable settings saved successfully.",
+    "saveFailed": "Failed to save timetable settings.",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "defaults": {
+      "sessionName": "Lesson"
+    },
+    "fields": {
+      "numberOfSessions": "Number of lessons",
+      "sessionRowTitle": "Lesson",
+      "sessionName": "Lesson name",
+      "teachingDays": "Teaching days",
+      "startTime": "Start time",
+      "endTime": "End time",
+      "durationMinutes": "Lesson duration (minutes)",
+      "requiresAttendance": "Attendance required",
+      "hasBreakAfter": "Break after lesson",
+      "breakName": "Break name",
+      "breakStartTime": "Break start time",
+      "breakEndTime": "Break end time",
+      "breakDurationMinutes": "Break duration (minutes)"
+    },
+    "validation": {
+      "invalidField": "Please enter a valid value.",
+      "checkRequiredFields": "Please review the highlighted fields.",
+      "nameTooShort": "Lesson name must contain at least 2 characters.",
+      "teachingDaysRequired": "Please select at least one teaching day.",
+      "invalidTime": "Please enter a valid time.",
+      "endTimeBeforeStart": "Lesson end time must be after start time.",
+      "durationInvalid": "Lesson duration is invalid. Check start and end times.",
+      "breakNameTooShort": "Break name must contain at least 2 characters.",
+      "breakStartTimeRequired": "Please enter the break start time.",
+      "breakEndTimeRequired": "Please enter the break end time.",
+      "breakEndTimeBeforeStart": "Break end time must be after break start time.",
+      "breakDurationInvalid": "Break duration is invalid.",
+      "numberOfSessionsInvalid": "Number of lessons must be between 1 and 20.",
+      "sessionsCountMismatch": "Generated lesson rows do not match the entered count."
+    }
   }
 }

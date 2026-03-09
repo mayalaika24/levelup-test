@@ -19,6 +19,9 @@ export default function LoginPage() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [formMessage, setFormMessage] = useState("");
+  const [formMessageType, setFormMessageType] = useState<"success" | "error" | null>(
+    null,
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {
     register,
@@ -41,6 +44,7 @@ export default function LoginPage() {
 
     if (!result.success) {
       setFormMessage("");
+      setFormMessageType(null);
       return;
     }
 
@@ -50,10 +54,12 @@ export default function LoginPage() {
 
     if (!loginResponse.success) {
       setFormMessage(t("invalidCredentials"));
+      setFormMessageType("error");
       return;
     }
 
     setFormMessage(t("successMessage"));
+    setFormMessageType("success");
     router.push(`/${locale}/dashboard`);
   }
 
@@ -118,7 +124,10 @@ export default function LoginPage() {
                       placeholder={t("usernamePlaceholder")}
                       aria-invalid={Boolean(errors.username)}
                       {...register("username", {
-                        onChange: () => setFormMessage(""),
+                        onChange: () => {
+                          setFormMessage("");
+                          setFormMessageType(null);
+                        },
                         validate: (value) => {
                           if (!value.trim()) {
                             return t("validation.usernameRequired");
@@ -152,7 +161,10 @@ export default function LoginPage() {
                       placeholder={t("passwordPlaceholder")}
                       aria-invalid={Boolean(errors.password)}
                       {...register("password", {
-                        onChange: () => setFormMessage(""),
+                        onChange: () => {
+                          setFormMessage("");
+                          setFormMessageType(null);
+                        },
                         validate: (value) => {
                           if (!value) {
                             return t("validation.passwordRequired");
@@ -200,8 +212,12 @@ export default function LoginPage() {
 
                 {formMessage ? (
                   <Typography
-                    variant="success"
-                    className="rounded-lg border border-primary/30 bg-primary/10 px-3 py-2"
+                    variant={formMessageType === "error" ? "error" : "success"}
+                    className={
+                      formMessageType === "error"
+                        ? "rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-red-600 dark:text-red-400"
+                        : "rounded-lg border border-primary/30 bg-primary/10 px-3 py-2"
+                    }
                   >
                     {formMessage}
                   </Typography>

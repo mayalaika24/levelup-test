@@ -1,0 +1,16 @@
+[
+  {
+    "id": "stage-primary",
+    "name": "الابتدائية",
+    "minimumStudentAge": 6,
+    "teachingLanguage": "العربية",
+    "isMixedStage": true
+  },
+  {
+    "id": "stage-middle",
+    "name": "المتوسطة",
+    "minimumStudentAge": 12,
+    "teachingLanguage": "العربية",
+    "isMixedStage": false
+  }
+]

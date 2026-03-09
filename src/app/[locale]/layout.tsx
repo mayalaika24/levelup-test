@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { Montserrat, Tajawal } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -49,6 +50,7 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
+          <Toaster richColors position="top-center" />
         </NextIntlClientProvider>
       </body>
     </html>
