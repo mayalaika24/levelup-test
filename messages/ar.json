@@ -1,0 +1,26 @@
+{
+  "LoginPage": {
+    "title": "تسجيل الدخول",
+    "subtitle": "مرحبًا بك في بوابة مدرسة LevelUp Academy",
+    "usernameLabel": "اسم المستخدم",
+    "passwordLabel": "كلمة المرور",
+    "usernamePlaceholder": "أدخل اسم المستخدم",
+    "passwordPlaceholder": "أدخل كلمة المرور",
+    "submit": "دخول",
+    "submitting": "جاري تسجيل الدخول...",
+    "helperText": "استخدم بيانات حسابك المدرسي للمتابعة",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "successMessage": "البيانات صحيحة وجاهزة للإرسال",
+    "invalidCredentials": "اسم المستخدم أو كلمة المرور غير صحيحة",
+    "brandDescription": "منصة تعليمية متكاملة لإدارة الرحلة الدراسية بسهولة واحترافية.",
+    "brandMotto": "تعلم. تطور. ارتقِ.",
+    "showPassword": "إظهار كلمة المرور",
+    "hidePassword": "إخفاء كلمة المرور",
+    "validation": {
+      "usernameRequired": "يرجى إدخال اسم المستخدم",
+      "passwordRequired": "يرجى إدخال كلمة المرور",
+      "usernameInvalid": "يرجى إدخال اسم مستخدم صالح (3 أحرف فأكثر، وحروف/أرقام/._- فقط)",
+      "passwordInvalid": "يرجى إدخال كلمة مرور صالحة (8 أحرف فأكثر)"
+    }
+  }
+}

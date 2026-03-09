@@ -1,0 +1,26 @@
+{
+  "LoginPage": {
+    "title": "Login",
+    "subtitle": "Welcome to the LevelUp Academy portal",
+    "usernameLabel": "Username",
+    "passwordLabel": "Password",
+    "usernamePlaceholder": "Enter your username",
+    "passwordPlaceholder": "Enter your password",
+    "submit": "Sign in",
+    "submitting": "Signing in...",
+    "helperText": "Use your school account credentials to continue",
+    "forgotPassword": "Forgot password?",
+    "successMessage": "Credentials are valid and ready to submit",
+    "invalidCredentials": "Invalid username or password",
+    "brandDescription": "An elegant learning platform for a smooth, focused school journey.",
+    "brandMotto": "Learn. Improve. Level up.",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "validation": {
+      "usernameRequired": "Please enter your username",
+      "passwordRequired": "Please enter your password",
+      "usernameInvalid": "Please enter a valid username (3+ characters, letters/numbers/._- only)",
+      "passwordInvalid": "Please enter a valid password (8+ characters)"
+    }
+  }
+}
