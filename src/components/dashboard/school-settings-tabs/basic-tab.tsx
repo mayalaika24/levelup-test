@@ -19,6 +19,11 @@ type BasicSchoolSettingsFormValues = BasicSchoolSettingsInput & {
   seal: FileList | null;
 };
 
+type SchoolSettingsUploadResponse = {
+  logoFileName?: string;
+  sealFileName?: string;
+};
+
 const fieldClassName =
   "h-11 w-full rounded-xl border border-input bg-background/80 px-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30";
 const selectTriggerClassName =
@@ -85,6 +90,31 @@ export function SchoolSettingsBasicTab({ data, isSaving, onSave }: BasicTabProps
   const logoFileName = watchedLogo?.[0]?.name ?? data.logoFileName ?? "";
   const sealFileName = watchedSeal?.[0]?.name ?? data.sealFileName ?? "";
 
+  async function uploadSchoolAssets(logoFile?: File, sealFile?: File) {
+    if (!logoFile && !sealFile) {
+      return {} as SchoolSettingsUploadResponse;
+    }
+
+    const formData = new FormData();
+    if (logoFile) {
+      formData.append("logo", logoFile);
+    }
+    if (sealFile) {
+      formData.append("seal", sealFile);
+    }
+
+    const response = await fetch("/api/school-settings/upload", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to upload school assets.");
+    }
+
+    return (await response.json()) as SchoolSettingsUploadResponse;
+  }
+
   async function handleSave(values: BasicSchoolSettingsFormValues) {
     const parsed = basicSchoolSettingsSchema.safeParse(values);
 
@@ -111,11 +141,17 @@ export function SchoolSettingsBasicTab({ data, isSaving, onSave }: BasicTabProps
       return;
     }
 
-    await onSave({
-      ...parsed.data,
-      logoFileName: logoFile?.name ?? data.logoFileName ?? "",
-      sealFileName: sealFile?.name ?? data.sealFileName ?? "",
-    });
+    try {
+      const uploadResult = await uploadSchoolAssets(logoFile, sealFile);
+
+      await onSave({
+        ...parsed.data,
+        logoFileName: uploadResult.logoFileName ?? data.logoFileName ?? "",
+        sealFileName: uploadResult.sealFileName ?? data.sealFileName ?? "",
+      });
+    } catch {
+      toast.error(t("saveFailed"));
+    }
   }
 
   return (

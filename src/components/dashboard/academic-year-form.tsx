@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { DashboardPanelSkeleton } from "@/components/dashboard/loading-skeletons";
 import { DynamicTable, type DynamicTableColumn } from "@/components/ui/dynamic-table";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Typography } from "@/components/ui/typography";
 import {
   academicYearPayloadSchema,
@@ -18,6 +19,8 @@ import { type SemesterInput } from "@/lib/validations/semester";
 
 const fieldClassName =
   "h-11 w-full rounded-xl border border-input bg-background/80 px-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30";
+const selectTriggerClassName =
+  "h-11 w-full rounded-xl border-input bg-background/80 px-3 text-sm focus:border-primary focus:ring-2 focus:ring-primary/30";
 
 const cardClassName = "rounded-2xl border border-border bg-card/80 p-5 shadow-xs sm:p-6";
 
@@ -289,6 +292,7 @@ export function AcademicYearForm() {
   const [editingItem, setEditingItem] = useState<AcademicYearInput | null>(null);
   const [deleteCandidate, setDeleteCandidate] = useState<AcademicYearInput | null>(null);
   const [selectedAcademicYearId, setSelectedAcademicYearId] = useState("");
+  const [selectedSemesterNodeId, setSelectedSemesterNodeId] = useState("");
 
   const sortedAcademicYears = useMemo(() => sortAcademicYears(academicYears), [academicYears]);
 
@@ -317,6 +321,11 @@ export function AcademicYearForm() {
       a.semesterStartDate.localeCompare(b.semesterStartDate),
     );
   }, [selectedAcademicYear, semestersByAcademicYearId]);
+
+  const selectedSemesterNode = useMemo(
+    () => selectedAcademicYearSemesters.find((item) => item.id === selectedSemesterNodeId) ?? null,
+    [selectedAcademicYearSemesters, selectedSemesterNodeId],
+  );
 
   useEffect(() => {
     let isMounted = true;
@@ -356,6 +365,23 @@ export function AcademicYearForm() {
       isMounted = false;
     };
   }, [t]);
+
+  useEffect(() => {
+    if (!selectedAcademicYear) {
+      setSelectedSemesterNodeId("");
+      return;
+    }
+
+    if (selectedAcademicYearSemesters.length === 0) {
+      setSelectedSemesterNodeId("");
+      return;
+    }
+
+    const stillExists = selectedAcademicYearSemesters.some((item) => item.id === selectedSemesterNodeId);
+    if (!stillExists) {
+      setSelectedSemesterNodeId(selectedAcademicYearSemesters[0].id);
+    }
+  }, [selectedAcademicYear, selectedAcademicYearSemesters, selectedSemesterNodeId]);
 
   async function handleCreate(values: AcademicYearPayloadInput) {
     setIsSaving(true);
@@ -560,16 +586,16 @@ export function AcademicYearForm() {
         initialValues={
           editingItem
             ? {
-                name: editingItem.name,
-                startDate: editingItem.startDate,
-                endDate: editingItem.endDate,
-                enrollmentStartDate: editingItem.enrollmentStartDate,
-                enrollmentEndDate: editingItem.enrollmentEndDate,
-                allowGradeEditAfterEnd: editingItem.allowGradeEditAfterEnd,
-                allowStudentFileEditAfterEnd: editingItem.allowStudentFileEditAfterEnd,
-                numberOfSemesters: editingItem.numberOfSemesters,
-                isActive: editingItem.isActive,
-              }
+              name: editingItem.name,
+              startDate: editingItem.startDate,
+              endDate: editingItem.endDate,
+              enrollmentStartDate: editingItem.enrollmentStartDate,
+              enrollmentEndDate: editingItem.enrollmentEndDate,
+              allowGradeEditAfterEnd: editingItem.allowGradeEditAfterEnd,
+              allowStudentFileEditAfterEnd: editingItem.allowStudentFileEditAfterEnd,
+              numberOfSemesters: editingItem.numberOfSemesters,
+              isActive: editingItem.isActive,
+            }
             : emptyPayload
         }
       />
@@ -589,23 +615,23 @@ export function AcademicYearForm() {
           </div>
           <Typography variant="muted">{t("activeHelpText")}</Typography>
         </section>
-      <section className={cardClassName}>
-        <div className="mb-4 flex items-center justify-between">
-          <Typography as="h3" variant="h4">
-            {t("existingAcademicYears")}
-          </Typography>
-        </div>
+        <section className={cardClassName}>
+          <div className="mb-4 flex items-center justify-between">
+            <Typography as="h3" variant="h4">
+              {t("existingAcademicYears")}
+            </Typography>
+          </div>
 
-        {isLoading ? (
-          <DashboardPanelSkeleton />
-        ) : (
-          <DynamicTable
-            data={sortedAcademicYears}
-            columns={columns}
-            getRowKey={(row) => row.id}
-            emptyMessage={t("emptyState")}
-          />
-        )}
+          {isLoading ? (
+            <DashboardPanelSkeleton />
+          ) : (
+            <DynamicTable
+              data={sortedAcademicYears}
+              columns={columns}
+              getRowKey={(row) => row.id}
+              emptyMessage={t("emptyState")}
+            />
+          )}
         </section>
 
         <section className={cardClassName}>
@@ -616,100 +642,194 @@ export function AcademicYearForm() {
             {t("hierarchy.description")}
           </Typography>
 
-          <div className="mb-4 max-w-md space-y-2">
+          <div className="mb-5 max-w-md space-y-2">
             <Typography as="label" variant="label" htmlFor="hierarchyAcademicYear">
               {t("hierarchy.selectAcademicYear")}
             </Typography>
-            <select
-              id="hierarchyAcademicYear"
-              className={fieldClassName}
-              value={selectedAcademicYearId}
-              onChange={(event) => setSelectedAcademicYearId(event.target.value)}
-            >
-              {sortedAcademicYears.map((academicYear) => (
-                <option key={academicYear.id} value={academicYear.id}>
-                  {academicYear.name}
-                </option>
-              ))}
-            </select>
+            <Select value={selectedAcademicYearId} onValueChange={setSelectedAcademicYearId}>
+              <SelectTrigger id="hierarchyAcademicYear" className={selectTriggerClassName}>
+                <SelectValue placeholder={t("hierarchy.selectAcademicYear")} />
+              </SelectTrigger>
+              <SelectContent>
+                {sortedAcademicYears.map((academicYear) => (
+                  <SelectItem key={academicYear.id} value={academicYear.id}>
+                    {academicYear.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           {!selectedAcademicYear ? (
             <Typography variant="muted">{t("hierarchy.noSelection")}</Typography>
           ) : (
             <div className="space-y-4">
-              <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
-                <div className="rounded-xl border border-border/70 p-3">
-                  <Typography variant="caption" className="text-muted-foreground">
+              <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <div className="flex flex-col justify-center rounded-2xl border border-border/60 bg-card p-4 shadow-sm transition hover:border-primary/30 hover:shadow-md">
+                  <Typography variant="caption" className="mb-2 text-muted-foreground">
                     {t("hierarchy.status")}
                   </Typography>
-                  <Typography variant="body" className="mt-1 font-medium">
-                    {selectedAcademicYear.isActive ? t("yes") : t("no")}
-                  </Typography>
+                  <div className="flex items-center gap-2">
+                    <div className={`mt-0.5 size-2.5 rounded-full ${selectedAcademicYear.isActive ? "bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.4)]" : "bg-destructive shadow-[0_0_10px_rgba(239,68,68,0.4)]"}`} />
+                    <Typography variant="body" className="font-semibold">
+                      {selectedAcademicYear.isActive ? t("yes") : t("no")}
+                    </Typography>
+                  </div>
                 </div>
-                <div className="rounded-xl border border-border/70 p-3">
-                  <Typography variant="caption" className="text-muted-foreground">
+                <div className="flex flex-col justify-center rounded-2xl border border-border/60 bg-card p-4 shadow-sm transition hover:border-primary/30 hover:shadow-md">
+                  <Typography variant="caption" className="mb-2 text-muted-foreground">
                     {t("hierarchy.expectedSemesters")}
                   </Typography>
-                  <Typography variant="body" className="mt-1 font-medium">
+                  <Typography variant="body" className="font-semibold text-xl">
                     {selectedAcademicYear.numberOfSemesters}
                   </Typography>
                 </div>
-                <div className="rounded-xl border border-border/70 p-3">
-                  <Typography variant="caption" className="text-muted-foreground">
+                <div className="flex flex-col justify-center rounded-2xl border border-border/60 bg-card p-4 shadow-sm transition hover:border-primary/30 hover:shadow-md">
+                  <Typography variant="caption" className="mb-2 text-muted-foreground">
                     {t("hierarchy.configuredSemesters")}
                   </Typography>
-                  <Typography variant="body" className="mt-1 font-medium">
+                  <Typography variant="body" className="font-semibold text-xl">
                     {selectedAcademicYearSemesters.length}
                   </Typography>
                 </div>
-                <div className="rounded-xl border border-border/70 p-3">
-                  <Typography variant="caption" className="text-muted-foreground">
+                <div className="flex flex-col justify-center rounded-2xl border border-border/60 bg-card p-4 shadow-sm transition hover:border-primary/30 hover:shadow-md">
+                  <Typography variant="caption" className="mb-2 text-muted-foreground">
                     {t("hierarchy.enrollmentWindow")}
                   </Typography>
-                  <Typography variant="body" className="mt-1 font-medium">
-                    {selectedAcademicYear.enrollmentStartDate} - {selectedAcademicYear.enrollmentEndDate}
+                  <Typography variant="body" className="font-semibold text-sm">
+                    {selectedAcademicYear.enrollmentStartDate} <span className="mx-1 text-muted-foreground">-</span> {selectedAcademicYear.enrollmentEndDate}
                   </Typography>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-border/70 p-4">
-                <Typography variant="label" className="mb-3 block">
+              <div className="rounded-2xl border border-border/60 bg-background/40 p-5 md:p-8">
+                <Typography variant="h4" className="mb-6 block text-center md:text-start">
                   {t("hierarchy.structureTitle")}
                 </Typography>
-                <div className="space-y-3">
-                  <div className="rounded-lg border border-primary/30 bg-primary/5 p-3">
-                    <Typography variant="body" className="font-medium">
+
+                <div className="flex flex-col items-center">
+                  <div className="relative z-10 mx-auto flex w-full max-w-sm flex-col items-center justify-center rounded-2xl border border-primary/20 bg-primary/5 p-4 text-center shadow-sm">
+                    <Typography variant="body" className="font-bold text-primary">
                       {selectedAcademicYear.name}
                     </Typography>
-                    <Typography variant="caption" className="text-muted-foreground">
-                      {selectedAcademicYear.startDate} - {selectedAcademicYear.endDate}
+                    <Typography variant="caption" className="mt-1 font-medium text-muted-foreground">
+                      {selectedAcademicYear.startDate} <span className="mx-1 text-primary/40">-</span> {selectedAcademicYear.endDate}
                     </Typography>
                   </div>
 
                   {selectedAcademicYearSemesters.length === 0 ? (
-                    <Typography variant="muted">{t("hierarchy.noSemestersLinked")}</Typography>
+                    <div className="mt-8 w-full max-w-md rounded-2xl border border-dashed border-border p-8 text-center bg-card/50">
+                      <Typography variant="muted">{t("hierarchy.noSemestersLinked")}</Typography>
+                    </div>
                   ) : (
-                    <div className="space-y-3 border-border ltr:border-l-2 rtl:border-r-2 ltr:pl-4 rtl:pr-4">
-                      {selectedAcademicYearSemesters.map((semester) => (
-                        <div key={semester.id} className="rounded-lg border border-border/70 p-3">
-                          <Typography variant="body" className="font-medium">
-                            {semester.name}
-                          </Typography>
-                          <Typography variant="caption" className="mt-1 block text-muted-foreground">
-                            {t("hierarchy.semesterDates")}: {semester.semesterStartDate} - {semester.semesterEndDate}
-                          </Typography>
-                          <Typography variant="caption" className="block text-muted-foreground">
-                            {t("hierarchy.classesDates")}: {semester.classesStartDate} - {semester.classesEndDate}
-                          </Typography>
-                          <Typography variant="caption" className="block text-muted-foreground">
-                            {t("hierarchy.finalExamDate")}: {semester.finalExamDate}
-                          </Typography>
-                          <Typography variant="caption" className="block text-muted-foreground">
-                            {t("hierarchy.assessmentType")}: {semesterTypes(semester.assessmentType)}
-                          </Typography>
+                    <div className="flex w-full flex-col items-center pt-6">
+                      {/* Vertical line from Academic Year to horizontal branch */}
+                      <div className="-mt-6 h-6 w-px bg-border md:-mt-8 md:h-8" />
+
+                      {/* Horizontal Branch connecting all semesters */}
+                      <div className="relative flex w-full max-w-5xl justify-center">
+                        {selectedAcademicYearSemesters.map((semester, index, array) => {
+                          const isSelected = semester.id === selectedSemesterNodeId;
+                          const isFirst = index === 0;
+                          const isLast = index === array.length - 1;
+                          const isOnly = array.length === 1;
+
+                          return (
+                            <div key={semester.id} className="relative flex w-full max-w-[280px] flex-1 flex-col items-center px-1 sm:px-2 md:px-4">
+                              {/* Horizontal connector logic */}
+                              {!isOnly && (
+                                <>
+                                  {!isFirst && <div className="absolute left-0 top-0 -z-10 h-px w-1/2 bg-border" />}
+                                  {!isLast && <div className="absolute right-0 top-0 -z-10 h-px w-1/2 bg-border" />}
+                                </>
+                              )}
+
+                              {/* Vertical connector */}
+                              <div className="absolute top-0 -z-10 h-8 w-px bg-border" />
+
+                              <button
+                                type="button"
+                                onClick={() => setSelectedSemesterNodeId(semester.id)}
+                                className={`group relative mt-8 flex w-full flex-col items-center overflow-hidden rounded-xl border p-3 text-center transition-all duration-300 hover:-translate-y-1 md:p-4 ${isSelected
+                                  ? "border-primary bg-card shadow-md ring-1 ring-primary/20"
+                                  : "border-border/60 bg-card/60 hover:border-primary/40 hover:bg-card hover:shadow-sm"
+                                  }`}
+                              >
+                                {isSelected && <div className="absolute inset-x-0 top-0 h-1 bg-primary" />}
+                                <Typography variant="body" className={`font-semibold transition-colors ${isSelected ? "text-primary" : "text-foreground group-hover:text-primary"}`}>
+                                  {semester.name}
+                                </Typography>
+                                <Typography variant="caption" className="mt-2 block text-muted-foreground/80">
+                                  <span className="md:hidden">{semester.semesterStartDate.slice(5)}</span>
+                                  <span className="hidden md:inline">{semester.semesterStartDate}</span>
+                                  <br className="sm:hidden" />
+                                  <span className="mx-1 hidden opacity-50 sm:inline">-</span>
+                                  <span className="md:hidden">{semester.semesterEndDate.slice(5)}</span>
+                                  <span className="hidden md:inline">{semester.semesterEndDate}</span>
+                                </Typography>
+                              </button>
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Selected Semester Details Node */}
+                      {selectedSemesterNode && (
+                        <div className="mt-8 flex w-full max-w-4xl flex-col items-center animate-in fade-in slide-in-from-top-4 duration-500">
+                          {/* Dotted or dashed vertical line pointing to details */}
+                          <div className="-mt-8 mb-8 flex h-8 flex-col items-center">
+                            <div className="h-full w-px border-l-2 border-dashed border-primary/40" />
+                          </div>
+
+                          <div className="w-full rounded-2xl border border-primary/10 bg-linear-to-b from-primary/3 to-transparent p-5 shadow-sm ring-1 ring-border/50 md:p-8">
+                            <Typography variant="h4" className="mb-6 text-center font-bold text-primary">
+                              {selectedSemesterNode.name}
+                            </Typography>
+
+                            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+                              <div className="flex flex-col items-center justify-center rounded-xl border border-border/50 bg-card/60 p-4 text-center shadow-sm transition hover:border-primary/20">
+                                <Typography variant="caption" className="mb-2 text-muted-foreground">
+                                  {t("hierarchy.semesterDates")}
+                                </Typography>
+                                <Typography variant="body" className="flex flex-col items-center text-sm font-semibold">
+                                  <span>{selectedSemesterNode.semesterStartDate}</span>
+                                  <span className="my-1 text-[10px] text-muted-foreground/60">-</span>
+                                  <span>{selectedSemesterNode.semesterEndDate}</span>
+                                </Typography>
+                              </div>
+
+                              <div className="flex flex-col items-center justify-center rounded-xl border border-border/50 bg-card/60 p-4 text-center shadow-sm transition hover:border-primary/20">
+                                <Typography variant="caption" className="mb-2 text-muted-foreground">
+                                  {t("hierarchy.classesDates")}
+                                </Typography>
+                                <Typography variant="body" className="flex flex-col items-center text-sm font-semibold">
+                                  <span>{selectedSemesterNode.classesStartDate}</span>
+                                  <span className="my-1 text-[10px] text-muted-foreground/60">-</span>
+                                  <span>{selectedSemesterNode.classesEndDate}</span>
+                                </Typography>
+                              </div>
+
+                              <div className="flex flex-col items-center justify-center rounded-xl border border-border/50 bg-card/60 p-4 text-center shadow-sm transition hover:border-primary/20">
+                                <Typography variant="caption" className="mb-2 text-muted-foreground">
+                                  {t("hierarchy.finalExamDate")}
+                                </Typography>
+                                <Typography variant="body" className="flex h-full items-center text-sm font-semibold">
+                                  {selectedSemesterNode.finalExamDate}
+                                </Typography>
+                              </div>
+
+                              <div className="flex flex-col items-center justify-center rounded-xl border border-border/50 bg-card/60 p-4 text-center shadow-sm transition hover:border-primary/20">
+                                <Typography variant="caption" className="mb-2 text-muted-foreground">
+                                  {t("hierarchy.assessmentType")}
+                                </Typography>
+                                <Typography variant="body" className="flex h-full items-center text-sm font-semibold">
+                                  {semesterTypes(selectedSemesterNode.assessmentType)}
+                                </Typography>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      ))}
+                      )}
                     </div>
                   )}
                 </div>

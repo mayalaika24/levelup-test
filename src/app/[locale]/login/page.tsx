@@ -5,12 +5,28 @@ import Link from "next/link";
 import { Eye, EyeOff, Lock, User } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
 import { loginUser } from "@/lib/services/auth";
 import { type LoginInput, loginSchema } from "@/lib/validations/auth";
+
+const deployedLogoSrc = "/logo.png";
+const fallbackLogoSrc = "/school-logo.svg";
+
+function resolveLogoSrc(logoFileName: string) {
+  const trimmed = logoFileName.trim();
+  if (!trimmed) {
+    return deployedLogoSrc;
+  }
+
+  if (trimmed.startsWith("/")) {
+    return trimmed;
+  }
+
+  return `/${encodeURIComponent(trimmed)}`;
+}
 
 export default function LoginPage() {
   const t = useTranslations("LoginPage");
@@ -23,6 +39,7 @@ export default function LoginPage() {
     null,
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [schoolLogoSrc, setSchoolLogoSrc] = useState(deployedLogoSrc);
   const {
     register,
     handleSubmit,
@@ -33,6 +50,45 @@ export default function LoginPage() {
       password: "",
     },
   });
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadSchoolLogo() {
+      try {
+        const response = await fetch("/api/school-settings", { method: "GET" });
+        if (!response.ok) {
+          return;
+        }
+
+        const data = (await response.json()) as { logoFileName?: string };
+        if (!isMounted) {
+          return;
+        }
+
+        setSchoolLogoSrc(resolveLogoSrc(data.logoFileName ?? ""));
+      } catch {
+        // Keep fallback logo on any request error.
+      }
+    }
+
+    void loadSchoolLogo();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const logoSrc = useMemo(() => schoolLogoSrc || fallbackLogoSrc, [schoolLogoSrc]);
+
+  function handleLogoError() {
+    setSchoolLogoSrc((currentSrc) => {
+      if (currentSrc !== deployedLogoSrc) {
+        return deployedLogoSrc;
+      }
+      return fallbackLogoSrc;
+    });
+  }
 
   async function onSubmit(values: LoginInput) {
     const normalizedValues = {
@@ -75,7 +131,13 @@ export default function LoginPage() {
         <div className="grid w-full overflow-hidden rounded-3xl border border-border/70 bg-card/85 shadow-[0_20px_60px_-25px_rgba(0,0,0,0.35)] backdrop-blur-sm lg:grid-cols-2">
           <aside className="hidden flex-col justify-between bg-linear-to-b from-primary/95 to-primary p-10 text-primary-foreground lg:flex">
             <div className="space-y-4">
-              <Image src="/school-logo.svg" alt="School logo" width={68} height={68} />
+              <Image
+                src={logoSrc}
+                alt="School logo"
+                width={68}
+                height={68}
+                onError={handleLogoError}
+              />
               <Typography variant="body" className="max-w-sm text-primary-foreground/90">
                 {t("brandDescription")}
               </Typography>
@@ -93,7 +155,13 @@ export default function LoginPage() {
           <div className="p-6 sm:p-10">
             <div className={`mx-auto w-full max-w-md space-y-7`}>
               <div className="flex items-center gap-3 lg:hidden">
-                <Image src="/school-logo.svg" alt="School logo" width={48} height={48} />
+                <Image
+                  src={logoSrc}
+                  alt="School logo"
+                  width={48}
+                  height={48}
+                  onError={handleLogoError}
+                />
                 <div>
                   <Typography variant="muted">LevelUp Academy</Typography>
                   <Typography variant="caption" className="text-muted-foreground/80">
